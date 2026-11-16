@@ -3,9 +3,57 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        
+        <title>Nexuss | Tu hub casual de notas conectadas a la nube</title>
+        <meta
+            name="description"
+            content="Consulta, sincroniza y lee tus notas al instante mediante peticiones HTTP con Fetch o Axios en Nexuss."
+        />
+        <link rel="stylesheet" href="/src/styles/global.css" />
     </head>
-    <body>
-        <h1>Nexuss</h1>
+    <body class="page">
+
+        <header class="header">
+            <div class="header__brand">
+                <span class="header__logo">Nexuss</span>
+                <p class="header__tagline">Tus notas, conectados al instante.</p>
+            </div>
+        </header>
+
+        <mai
+            <section class="hero" aria-labelledby="hero-title">
+                <h1 id="hero-title" class="hero__title">Conecta la API, lee tus notas rapidamente.</h1>
+                <p class="hero__subtitle">
+                    Elige tu motor favorito —<strong>Axios</strong> o <strong>Fetch</strong>—, dispara la petición y
+                    pinta tus ideas en pantalla sin dar vueltas.
+                </p>
+
+               
+                <div class="controls">
+                    <label for="http-method" class="controls__label"> ¿Cómo quieres traer los datos? </label>
+                    <select id="http-method" name="httpMethod" class="controls__select">
+                        <option value="" disabled selected>Elige tu herramienta...</option>
+                        <option value="fetch">Usar Fetch nativo</option>
+                        <option value="axios">Usar Axios</option>
+                    </select>
+
+                    <button id="btn-fetch" type="button" class="controls__button">Jalar notas ahora</button>
+                </div>
+            </section>
+
+     
+            <section class="notes-board" aria-label="Listado de notas">
+                <div id="notes-container" class="notes-board__grid">
+            
+                </div>
+            </section>
+        </main>
+
+    
+        <footer class="footer">
+            <p class="footer__text">Hecho con código limpio &bull; Nexuss</p>
+        </footer>
+
+        <script type="module" src="/dist/ts/main.js"></script>
     </body>
 </html>

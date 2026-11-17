@@ -1,0 +1,33 @@
+.hero {
+    background-image: url('/public/assets/bg-web.png');
+    background-repeat: no-repeat;
+    background-position: top right;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: self-end;
+}
+
+.hero__img {
+    width: 80%;
+    padding-top: 2rem;
+}
+.header__brand {
+    background: #947ad8;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 1rem 2rem;
+}
+.header__logo {
+    width: 6rem;
+}
+.header__container-isotipo {
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: row-reverse;
+}
+.header__isotipo {
+    width: 1.8rem;
+}

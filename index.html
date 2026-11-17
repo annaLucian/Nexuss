@@ -3,8 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        
-        <title>Nexuss | Tu hub casual de notas conectadas a la nube</title>
+        <link rel="icon" href="/public/assets/ico.png">
+        <title>Nexxus | Notas conectadas a la nube</title>
         <meta
             name="description"
             content="Consulta, sincroniza y lee tus notas al instante mediante peticiones HTTP con Fetch o Axios en Nexuss."
@@ -12,23 +12,26 @@
         <link rel="stylesheet" href="/src/styles/global.css" />
     </head>
     <body class="page">
-
         <header class="header">
             <div class="header__brand">
-                <span class="header__logo">Nexuss</span>
-                <p class="header__tagline">Tus notas, conectados al instante.</p>
+                <img src="/public/assets/logo.png" class="header__logo"></img>
+                <div class="header__container-isotipo">
+                <p class="header__tagline">Tu hub casual.</p>
+                <img src="/public/assets/isotipo.png" alt="" class="header__isotipo">
+                </div>
+         
             </div>
         </header>
 
-        <mai
+        <main>
             <section class="hero" aria-labelledby="hero-title">
+                <img src="/public/assets/bg-web-1.png" alt="" class="hero__img" />
                 <h1 id="hero-title" class="hero__title">Conecta la API, lee tus notas rapidamente.</h1>
                 <p class="hero__subtitle">
                     Elige tu motor favorito —<strong>Axios</strong> o <strong>Fetch</strong>—, dispara la petición y
                     pinta tus ideas en pantalla sin dar vueltas.
                 </p>
 
-               
                 <div class="controls">
                     <label for="http-method" class="controls__label"> ¿Cómo quieres traer los datos? </label>
                     <select id="http-method" name="httpMethod" class="controls__select">
@@ -41,15 +44,11 @@
                 </div>
             </section>
 
-     
             <section class="notes-board" aria-label="Listado de notas">
-                <div id="notes-container" class="notes-board__grid">
-            
-                </div>
+                <div id="notes-container" class="notes-board__grid"></div>
             </section>
         </main>
 
-    
         <footer class="footer">
             <p class="footer__text">Hecho con código limpio &bull; Nexuss</p>
         </footer>

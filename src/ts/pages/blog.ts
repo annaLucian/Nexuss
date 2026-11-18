@@ -1,21 +1,29 @@
 import { type Post } from '../../models/post.model.js';
 import { type ApiClient } from '../../types/api.types.js';
 import { fetchData } from '../../services/fetchData.js';
-import { httpMethod, btnFetch } from '../dom.js';
-import { paragraphError } from '../dom.js';
+import { httpMethod, btnFetch, paragraphError } from '../dom.js';
 
 const getAllPosts = async (service: ApiClient) => {
     const posts: Post[] = await fetchData.getAllData(service);
     return posts;
 };
 
+httpMethod.addEventListener('change', () => {
+    if (httpMethod.value !== '') {
+        paragraphError.innerHTML = '';
+        paragraphError.classList.remove('error');
+        paragraphError.classList.remove('visible');
+    }
+});
+
 btnFetch.addEventListener('click', async () => {
     const selectValue = httpMethod.value;
     const formatApi = selectValue.trim().toLowerCase();
 
     if (selectValue == '') {
-        paragraphError.innerHTML = 'Por favor selecciona una opción válida';
+        paragraphError.innerHTML = 'X Por favor selecciona una opción válida';
         paragraphError.classList.toggle('error', selectValue === '');
+        paragraphError.classList.toggle('visible', selectValue !== '');
         return;
     }
 

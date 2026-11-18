@@ -4,7 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/public/assets/ico.png">
-        <title>Nexxus | Notas conectadas a la nube</title>
+        <title>Nexxus | Blogs conectadas a la nube</title>
         <meta
             name="description"
             content="Consulta, sincroniza y lee tus notas al instante mediante peticiones HTTP con Fetch o Axios en Nexuss."
@@ -14,7 +14,8 @@
     <body class="page">
         <header class="header">
             <div class="header__brand">
-                <img src="/public/assets/logo.png" class="header__logo"></img>
+                <a href="./index.html" class="header__link"> <img src="/public/assets/logo.png" class="header__logo"></img></a>
+               
                 <div class="header__container-isotipo">
                 <p class="header__tagline">Tu hub casual.</p>
                 <img src="/public/assets/isotipo.png" alt="" class="header__isotipo">
@@ -25,11 +26,13 @@
 
         <main>
             <section class="hero" aria-labelledby="hero-title">
-                <img src="/public/assets/bg-web-1.png" alt="" class="hero__img" />
-                <h1 id="hero-title" class="hero__title">Conecta la API, lee tus notas rapidamente.</h1>
+                <div class="hero__banner">
+       <img src="/public/assets/bg-web-1.png" alt="" class="hero__img" />
+                <div class="hero__content">
+                     <h1 id="hero-title" class="hero__title">Conecta la API, lee blogs rapidamente.</h1>
                 <p class="hero__subtitle">
                     Elige tu motor favorito —<strong>Axios</strong> o <strong>Fetch</strong>—, dispara la petición y
-                    pinta tus ideas en pantalla sin dar vueltas.
+                    pinta tus blogs en pantalla sin dar vueltas.
                 </p>
 
                 <div class="controls">
@@ -39,19 +42,19 @@
                         <option value="fetch">Usar Fetch nativo</option>
                         <option value="axios">Usar Axios</option>
                     </select>
-                    <p id="http-error"></p>
+                    <p id="http-error" class="visible"></p>
 
-                    <button id="btn-fetch" type="button" class="controls__button">Jalar notas ahora</button>
+                    <button id="btn-fetch" type="button" class="controls__button">Ver blogs</button>
                 </div>
-            </section>
-
-            <section class="notes-board" aria-label="Listado de notas">
-                <div id="notes-container" class="notes-board__grid"></div>
+                </div>
+                </div>
+         
+               
             </section>
         </main>
 
         <footer class="footer">
-            <p class="footer__text">Hecho con código limpio &bull; Nexuss</p>
+            <p class="footer__text">Hecho por &bull; @Nexuss</p>
         </footer>
         <script type="importmap">
         {

@@ -2,34 +2,12 @@
 @import url('./reset.css');
 @import url('./home.css');
 
-//color morado fuerte #5d3aba
-body {
-    background-color: black;
-    color: white;
-}
-
 :root {
     --bg-color: #f4f4f9;
     --text-color: #1e1e2f;
     --card-bg: #ffffff;
     --accent-color: #6366f1;
     --border-color: #e2e8f0;
-}
-
-body[data-theme='fetch'] {
-    --bg-color: #fffbeb;
-    --text-color: #451a03;
-    --card-bg: #ffffff;
-    --accent-color: #f59e0b;
-    --border-color: #fde68a;
-}
-
-body[data-theme='axios'] {
-    --bg-color: #0f172a;
-    --text-color: #f8fafc;
-    --card-bg: #1e293b;
-    --accent-color: #8b5cf6;
-    --border-color: #334155;
 }
 
 body.page {
@@ -39,24 +17,4 @@ body.page {
         background-color 0.4s ease,
         color 0.4s ease;
     font-family: 'Google Sans Flex', sans-serif;
-}
-
-.controls__button {
-    background-color: var(--accent-color);
-    color: #ffffff;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.notes-board__status {
-    padding: 0.5rem 1rem;
-    border-left: 4px solid var(--accent-color);
-    background-color: var(--card-bg);
-    margin-bottom: 1.5rem;
-    border-radius: 4px;
-    font-weight: 500;
 }

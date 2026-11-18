@@ -1,26 +1,26 @@
 import axios from 'axios';
+import { type ApiClient } from '../types/api.types.js';
+import type { Post } from '../models/post.model.js';
+
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 
 export const fetchData = {
-    getAllData: async (apiService: string) => {
-        const formatApi = apiService.trim().toLowerCase();
-        if (formatApi === '') return [];
+    getAllData: async (apiService: ApiClient): Promise<Post[]> => {
         try {
-            if (formatApi === 'axios') {
-                const response = await axios.get(`${API_URL}`).then((res) => res.data);
-
-                return response ? response : [];
-            } else {
-                const response = await fetch(`${API_URL}`);
-                if (!response.ok) {
-                    throw new Error('las respuesta no fue la esperada');
-                }
-                const data = await response.json();
-
-                return data ? data : [];
+            if (apiService === 'axios') {
+                const { data } = await axios.get<Post[]>(API_URL);
+                return data ?? [];
             }
+
+            const response = await fetch(API_URL);
+            if (!response.ok) {
+                throw new Error(`Error HTTP: ${response.status}`);
+            }
+            const data: Post[] = await response.json();
+            return data ?? [];
         } catch (error) {
             console.error('Los posts no se cargaron correctamente', error);
+            return [];
         }
     },
 };

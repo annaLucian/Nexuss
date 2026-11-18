@@ -39,6 +39,7 @@
                         <option value="fetch">Usar Fetch nativo</option>
                         <option value="axios">Usar Axios</option>
                     </select>
+                    <p id="http-error"></p>
 
                     <button id="btn-fetch" type="button" class="controls__button">Jalar notas ahora</button>
                 </div>
@@ -52,7 +53,13 @@
         <footer class="footer">
             <p class="footer__text">Hecho con código limpio &bull; Nexuss</p>
         </footer>
-
-        <script type="module" src="/dist/ts/main.js"></script>
+        <script type="importmap">
+        {
+            "imports": {
+            "axios": "./node_modules/axios/dist/esm/axios.js"
+            }
+        }
+        </script>
+        <script type="module" src="/dist/ts/pages/blog.js"></script>
     </body>
 </html>

@@ -1,11 +1,94 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <link rel="icon" href="/public/assets/ico.png" />
+        <title>Nexxus | Blogs de Publicaciones</title>
+        <link rel="stylesheet" href="/src/styles/global.css" />
     </head>
-    <body>
-        <h3>Blog</h3>
+    <body class="blog-page" id="page-body">
+        <header class="header blog-header">
+            <div class="header__brand">
+                <a href="/index.html" class="header__link">
+                    <img src="/public/assets/logo.png" class="header__logo" alt="Logo Nexxus" />
+                </a>
+
+                <div class="header__container-isotipo">
+                    <p class="header__tagline">Tu hub casual.</p>
+                    <img src="/public/assets/isotipo.png" alt="" class="header__isotipo" />
+                </div>
+            </div>
+        </header>
+
+        <main class="blog-main">
+            <!-- BARRA SUPERIOR: Navegación / Breadcrumb + Buscador -->
+            <nav class="blog-nav-bar" aria-label="Navegación y búsqueda">
+                <div class="blog-nav-bar__left">
+                    <a href="/index.html" class="back-btn">
+                        <span class="back-btn__arrow">←</span>
+                        <span>Volver al inicio</span>
+                    </a>
+                    <span class="breadcrumb-trail">NEXXUS / API / <strong id="breadcrumb-client">...</strong></span>
+                </div>
+
+                <div class="search-box">
+                    <svg
+                        class="search-box__icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    >
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input
+                        type="text"
+                        id="search-input"
+                        class="search-box__input"
+                        placeholder="Filtrar publicaciones por título..."
+                    />
+                </div>
+            </nav>
+
+            <!-- ENCABEZADO EDITORIAL -->
+            <header class="editorial-hero">
+                <p class="editorial-description">Blogs obtenidos mediante</p>
+                <div>
+                    <div class="editorial-hero__title-wrapper">
+                        <h1 id="dynamic-title" class="editorial-hero__title">Cargando colección de artículos...</h1>
+                        <span id="hero-dropcap" class="editorial-hero__dropcap" aria-hidden="true"></span>
+                    </div>
+                    <p id="service-badge"></p>
+                </div>
+
+                <p id="dynamic-paragraph"></p>
+            </header>
+
+            <!-- GRILLA DE TARJETAS DIVIDIDAS (10 por página) -->
+            <section class="editorial-grid" id="posts-container" aria-label="Listado de artículos">
+                <article class="editorial-card">
+                    <div class="editorial-card__top">
+                        <div class="editorial-card__meta">
+                            <span class="editorial-card__circle">+</span>
+                            <span class="editorial-card__number">N.° 01</span>
+                        </div>
+                        <h2 class="editorial-card__title">Título del artículo aquí</h2>
+                    </div>
+                    <div class="editorial-card__bottom">
+                        <p class="editorial-card__excerpt">Resumen o extracto de la publicación conectado a la API.</p>
+                    </div>
+                </article>
+                -->
+            </section>
+
+            <div class="editorial-pagination">
+                <button id="prev-page" class="editorial-pagination__btn" type="button">← Prev.</button>
+                <span id="page-indicator" class="editorial-pagination__info">Página 1 de 1</span>
+                <button id="next-page" class="editorial-pagination__btn" type="button">Next →</button>
+            </div>
+        </main>
+        <script type="module" src="/dist/ts/pages/blog.js"></script>
     </body>
 </html>

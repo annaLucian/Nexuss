@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@1..144,1..1000&display=swap');
 @import url('./reset.css');
-@import url('./home.css');
+@import url('./pages/home.css');
+@import url('./pages/blog/index.css');
 
 :root {
     --bg-color: #f4f4f9;
@@ -16,5 +17,10 @@ body.page {
     transition:
         background-color 0.4s ease,
         color 0.4s ease;
+    font-family: 'Google Sans Flex', sans-serif;
+}
+button,
+a,
+input {
     font-family: 'Google Sans Flex', sans-serif;
 }

@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { type ApiClient } from '../types/api.types.js';
-import type { Post } from '../models/post.model.js';
+import { type ApiClient } from '../../types/api.types.js';
+import type { Post } from '../../models/post.model.js';
 
 const API_URL = 'https://jsonplaceholder.typicode.com/posts';
 

@@ -6,4 +6,5 @@ export const getElements = () => ({
     heroDropcap: document.getElementById('hero-dropcap'),
     dynamicParagraph: document.getElementById('dynamic-paragraph'),
     postCard: document.getElementById('posts-container'),
+    input: document.getElementById('search-input'),
 });

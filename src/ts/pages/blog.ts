@@ -1,8 +1,10 @@
 import { initBlog } from '../components/blog/initBlog.js';
 import { renderCards } from '../components/blog/renderCards.js';
+import { search } from '../components/blog/search.js';
 
 const blog = () => {
     initBlog();
     renderCards();
+    search();
 };
 blog();

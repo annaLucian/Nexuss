@@ -69,11 +69,13 @@
 
             <section class="editorial-grid" id="posts-container" aria-label="Listado de artículos">--></section>
 
-            <div class="editorial-pagination">
-                <button id="prev-page" class="editorial-pagination__btn" type="button">← Prev.</button>
-                <span id="page-indicator" class="editorial-pagination__info">Página 1 de 1</span>
-                <button id="next-page" class="editorial-pagination__btn" type="button">Next →</button>
-            </div>
+            <main class="editorial-main">
+                <!-- Contenedor donde se pintan las tarjetas (10 por página) -->
+                <section id="posts-container" class="editorial-grid" aria-label="Listado de artículos"></section>
+
+                <!-- Contenedor de paginación: aquí se inyectan los botones y "Página X de Y" -->
+                <nav id="pagination" class="pagination" aria-label="Paginación de artículos"></nav>
+            </main>
         </main>
         <footer class="footer">
             <p class="footer__text">Hecho por &bull; @Nexuss</p>

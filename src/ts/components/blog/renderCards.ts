@@ -1,25 +1,37 @@
 import type { Post } from '../../../models/post.model.js';
 import { getElements } from './dom.js';
+import { getPageFromUrl, setPageUrl, setupPagination } from './pagination.js';
+
+let currentPage = getPageFromUrl() || 1;
+const itemsPerPage = 10;
 
 const getDataPosts = () => {
     const storedPosts = localStorage.getItem('postData');
     const dataPosts: Post[] = storedPosts ? JSON.parse(storedPosts) : [];
     return dataPosts;
 };
-export const renderCards = () => {
+
+export const renderCards = (page: number = getPageFromUrl()) => {
     const { postCard } = getElements();
     const dataPosts = getDataPosts();
 
     if (!postCard) return;
+
+    const totalItems = dataPosts.length;
+    const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+    const activePage = Math.min(Math.max(1, page), totalPages);
+
+    setPageUrl(activePage);
+
+    const startIndex = (activePage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedPosts = dataPosts.slice(startIndex, endIndex);
+
     postCard.innerHTML = '';
 
-    if (dataPosts.length === 0) {
-        postCard.innerHTML = `<p style="grid-column: 1 / -1; text-align: center; padding: 2rem; font-weight: 600;">No hay publicaciones disponibles.</p>`;
-        return;
-    }
-
-    dataPosts.forEach((dataPost, index) => {
-        const formattedNumber = `N.° ${String(index + 1).padStart(2, '0')}`;
+    paginatedPosts.forEach((dataPost, index) => {
+        const postNumber = startIndex + index + 1;
+        const formattedNumber = `N.° ${String(postNumber).padStart(2, '0')}`;
 
         const card = document.createElement('article');
         card.classList.add('editorial-card');
@@ -35,7 +47,11 @@ export const renderCards = () => {
                 <p class="editorial-card__excerpt">${dataPost.body}</p>
             </div>
         `;
-
         postCard.appendChild(card);
+    });
+
+    setupPagination(totalItems, itemsPerPage, activePage, (nextPage) => {
+        renderCards(nextPage);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 };

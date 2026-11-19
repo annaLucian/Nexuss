@@ -23,4 +23,17 @@ export const fetchData = {
             return [];
         }
     },
+
+    getSearchBlogs: async (apiService: ApiClient, searchTerm: string) => {
+        const blogs = await fetchData.getAllData(apiService);
+        try {
+            const filteredBlogs: Post[] = blogs.filter(
+                (blog: Post) => blog.title.includes(searchTerm) || blog.body.includes(searchTerm)
+            );
+            return filteredBlogs;
+        } catch (error) {
+            console.error('No se encontro el post', error);
+            return [];
+        }
+    },
 };

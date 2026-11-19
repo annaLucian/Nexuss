@@ -1,32 +1,3 @@
-/* =========================================================
-1. VARIABLES DE TEMA (FETCH vs AXIOS)
-========================================================= */
-
-/* TEMA FETCH: Amarillo dorado editorial + Gris plomo/antracita */
-body.theme-fetch {
-    --theme-primary: #ffd014; /* Amarillo dorado de tu referencia */
-    --theme-primary-dark: #e6b800;
-    --theme-text-on-primary: #222222; /* Texto oscuro sobre bloques amarillos */
-    --theme-header-bg: #262529; /* Header plomo oscuro elegante */
-    --theme-header-border: #ffd014; /* Línea inferior amarilla en header */
-    --theme-grid-line: rgba(255, 208, 20, 0.22);
-    --theme-ink: #2b2b2b;
-}
-
-/* TEMA AXIOS: Morado eléctrico + Morado profundo */
-body.theme-axios {
-    --theme-primary: #6c47ff; /* Morado vibrante */
-    --theme-primary-dark: #522ee6;
-    --theme-text-on-primary: #ffffff; /* Texto blanco sobre bloques morados */
-    --theme-header-bg: #251640; /* Header morado profundo */
-    --theme-header-border: #9d4edd; /* Línea inferior violeta en header */
-    --theme-grid-line: rgba(108, 71, 255, 0.14);
-    --theme-ink: #1f1633;
-}
-
-/* =========================================================
-2. LIENZO BASE Y RETÍCULA ARQUITECTÓNICA
-========================================================= */
 .blog-page {
     margin: 0;
     background-color: #ffffff;
@@ -43,9 +14,6 @@ body.theme-axios {
     transition: background-color 0.3s ease;
 }
 
-/* =========================================================
-3. HEADER DINÁMICO
-========================================================= */
 .blog-header {
     background-color: var(--theme-header-bg) !important;
     border-bottom: 3px solid var(--theme-header-border);
@@ -54,9 +22,6 @@ body.theme-axios {
         border-color 0.3s ease;
 }
 
-/* =========================================================
-4. BARRA SUPERIOR (BOTÓN VOLVER + BUSCADOR)
-========================================================= */
 .blog-main {
     width: 100%;
     flex: 1;
@@ -65,7 +30,7 @@ body.theme-axios {
 .blog-nav-bar {
     width: 90%;
     max-width: 1200px;
-    margin: 2.5rem auto 2rem auto;
+    margin: 2.5rem auto 0rem auto;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -116,9 +81,7 @@ body.theme-axios {
 .search-box {
     position: relative;
     flex: 1;
-    max-width: 380px;
-    min-width: 260px;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 .search-box__icon {
@@ -152,16 +115,10 @@ body.theme-axios {
     box-shadow: 0 0 0 3px var(--theme-grid-line);
 }
 
-/* =========================================================
-5. ENCABEZADO EDITORIAL CON FRANJA DE COLOR Y LETRA GIGANTE
-========================================================= */
-/* =========================================================
-   ENCABEZADO EDITORIAL (LETRA GIGANTE + TÍTULO SUPERPUESTO)
-========================================================= */
 .editorial-hero {
     width: 90%;
     max-width: 1200px;
-    margin: 3rem auto;
+    margin: 1rem auto 3rem;
 }
 .editorial-hero__title-wrapper {
     position: relative;
@@ -184,7 +141,7 @@ body.theme-axios {
     position: absolute;
     z-index: 2;
     font-family: 'Google Sans Flex', sans-serif;
-    font-size: clamp(4rem, 6.5vw, 6.8rem);
+    font-size: clamp(6rem, 8.5vw, 10rem);
     font-weight: 600;
     line-height: 1.05;
     color: #2b2b2b;
@@ -192,6 +149,7 @@ body.theme-axios {
     bottom: -0.5rem;
     left: 0.5rem;
 }
+
 .editorial-description {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
@@ -200,6 +158,7 @@ body.theme-axios {
 #service-badge {
     font-weight: 600;
     margin-bottom: 0.5rem;
+    margin-top: 2rem;
 }
 #dynamic-paragraph {
     font-size: 0.9rem;
@@ -215,22 +174,19 @@ body.theme-axios {
     font-weight: 500;
 }
 
-/* =========================================================
-6. GRILLA Y TARJETA DIVIDIDA EN 2 BLOQUES (ESTILO REFERENCIA)
-========================================================= */
 .editorial-grid {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto 4rem auto;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
-    gap: 2.5rem 2rem;
+    gap: 3rem 2rem;
 }
 
 .editorial-card {
     display: flex;
     flex-direction: column;
-    gap: 0.85rem; /* Espacio exacto entre el marco blanco y el bloque sólido */
+    gap: 0.85rem;
     transition: transform 0.25s ease;
 }
 
@@ -238,7 +194,6 @@ body.theme-axios {
     transform: translateY(-5px);
 }
 
-/* Bloque Superior: Marco fino blanco con círculo '+' y título Serif */
 .editorial-card__top {
     background-color: #ffffff;
     border: 1.5px solid var(--theme-primary);
@@ -284,17 +239,11 @@ body.theme-axios {
 }
 
 .editorial-card__title {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.55rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--theme-ink);
     line-height: 1.25;
     margin: 2rem 0 0 0;
-    text-transform: capitalize;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
 /* Bloque Inferior: Rectángulo sólido de color */
@@ -315,14 +264,8 @@ body.theme-axios {
     line-height: 1.5;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
 }
 
-/* =========================================================
-7. PAGINACIÓN MINIMALISTA
-========================================================= */
 .editorial-pagination {
     width: 90%;
     max-width: 1200px;
@@ -363,7 +306,149 @@ body.theme-axios {
     color: var(--theme-ink);
 }
 
-/* Footer adaptado */
 .blog-footer {
     border-top: 2px solid var(--theme-primary);
+}
+
+@media (min-width: 768px) {
+    .back-btn {
+        font-size: 1rem;
+    }
+    .breadcrumb-trail {
+        font-size: 0.95rem;
+    }
+    .blog-nav-bar,
+    .editorial-hero,
+    .editorial-grid,
+    .editorial-pagination {
+        width: 80%;
+    }
+    .search-box__input {
+        padding: 1rem 1.2rem 1rem 2.8rem;
+        font-size: 1rem;
+    }
+
+    .editorial-description {
+        font-size: 1rem;
+    }
+    .editorial-hero__header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        width: 100%;
+    }
+    #service-badge {
+        font-size: 1.15rem;
+    }
+    .editorial-grid {
+        margin-bottom: 6rem;
+    }
+
+    #dynamic-paragraph {
+        font-size: 1rem;
+        line-height: 1.7rem;
+        margin-top: 1rem;
+    }
+    .editorial-card__top {
+        min-height: 300px;
+    }
+    .editorial-card__title {
+        font-size: 1.5rem;
+    }
+    .editorial-card__number {
+        font-size: 1rem;
+    }
+    .editorial-card__circle {
+        font-size: 1.7rem;
+    }
+    .editorial-card__excerpt {
+        font-size: 1.1rem;
+    }
+    .editorial-pagination__btn {
+        padding: 0.65rem 3.5rem;
+        font-size: 1rem;
+    }
+    .editorial-pagination__info {
+        font-size: 1rem;
+    }
+    .editorial-pagination {
+        justify-content: space-between;
+        gap: 0;
+        margin-bottom: 6rem;
+    }
+}
+@media (min-width: 1024px) {
+    .blog-nav-bar,
+    .editorial-hero {
+        margin-top: 5rem;
+    }
+    .editorial-description {
+        font-size: 1.2rem;
+    }
+    #service-badge {
+        font-size: 1.5rem;
+    }
+    #dynamic-paragraph {
+        font-size: 1.1rem;
+    }
+    #dynamic-paragraph {
+        font-size: 1.2rem;
+    }
+    .editorial-hero {
+        margin-bottom: 6rem;
+    }
+    .editorial-grid {
+        gap: 5rem 3rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .blog-nav-bar,
+    .editorial-hero,
+    .editorial-grid,
+    .editorial-pagination {
+        width: 85%;
+        max-width: 1600px;
+    }
+    .editorial-hero {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+    .editorial-hero__content {
+        flex-basis: 50%;
+    }
+    .back-btn {
+        padding: 0.6rem 1.5rem;
+    }
+    #service-badge {
+        margin-top: 0;
+        font-size: 1.3rem;
+    }
+    .search-box {
+        flex-basis: 50%;
+        max-width: 550px;
+        min-width: 260px;
+    }
+    .blog-nav-bar__left {
+        justify-content: start;
+        gap: 2rem;
+        width: auto;
+    }
+    .editorial-pagination {
+        justify-content: center;
+        gap: 6rem;
+        margin-bottom: 8rem;
+    }
+    .blog-nav-bar,
+    .editorial-hero {
+        margin-top: 7rem;
+    }
+    .editorial-hero__title {
+        bottom: -3rem;
+        left: 1rem;
+    }
+    #dynamic-paragraph {
+        margin-top: 2rem;
+    }
 }

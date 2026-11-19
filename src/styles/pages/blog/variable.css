@@ -1,0 +1,19 @@
+body.theme-fetch {
+    --theme-primary: #ffd014;
+    --theme-primary-dark: #e6b800;
+    --theme-text-on-primary: #222222;
+    --theme-header-bg: #262529;
+    --theme-header-border: #ffd014;
+    --theme-grid-line: rgba(255, 208, 20, 0.22);
+    --theme-ink: #2b2b2b;
+}
+
+body.theme-axios {
+    --theme-primary: #6c47ff;
+    --theme-primary-dark: #522ee6;
+    --theme-text-on-primary: #ffffff;
+    --theme-header-bg: #251640;
+    --theme-header-border: #9d4edd;
+    --theme-grid-line: rgba(108, 71, 255, 0.14);
+    --theme-ink: #1f1633;
+}

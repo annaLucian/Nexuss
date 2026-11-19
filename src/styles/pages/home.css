@@ -290,6 +290,10 @@
     .hero__title::before {
         height: 120%;
     }
+
+    .footer {
+        font-size: 1.05rem;
+    }
 }
 @media (min-width: 1600px) {
     .hero__img {

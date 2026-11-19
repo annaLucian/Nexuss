@@ -22,7 +22,6 @@
         </header>
 
         <main class="blog-main">
-            <!-- BARRA SUPERIOR: Navegación / Breadcrumb + Buscador -->
             <nav class="blog-nav-bar" aria-label="Navegación y búsqueda">
                 <div class="blog-nav-bar__left">
                     <a href="/index.html" class="back-btn">
@@ -30,6 +29,22 @@
                         <span>Volver al inicio</span>
                     </a>
                     <span class="breadcrumb-trail">NEXXUS / API / <strong id="breadcrumb-client">...</strong></span>
+                </div>
+
+                <p id="service-badge"></p>
+            </nav>
+
+            <header class="editorial-hero">
+                <div class="editorial-hero__content">
+                    <p class="editorial-description">Blogs obtenidos mediante</p>
+                    <div class="editorial-hero__header">
+                        <div class="editorial-hero__title-wrapper">
+                            <h1 id="dynamic-title" class="editorial-hero__title">Cargando colección de artículos...</h1>
+                            <span id="hero-dropcap" class="editorial-hero__dropcap" aria-hidden="true"></span>
+                        </div>
+                    </div>
+
+                    <p id="dynamic-paragraph"></p>
                 </div>
 
                 <div class="search-box">
@@ -50,38 +65,9 @@
                         placeholder="Filtrar publicaciones por título..."
                     />
                 </div>
-            </nav>
-
-            <!-- ENCABEZADO EDITORIAL -->
-            <header class="editorial-hero">
-                <p class="editorial-description">Blogs obtenidos mediante</p>
-                <div>
-                    <div class="editorial-hero__title-wrapper">
-                        <h1 id="dynamic-title" class="editorial-hero__title">Cargando colección de artículos...</h1>
-                        <span id="hero-dropcap" class="editorial-hero__dropcap" aria-hidden="true"></span>
-                    </div>
-                    <p id="service-badge"></p>
-                </div>
-
-                <p id="dynamic-paragraph"></p>
             </header>
 
-            <!-- GRILLA DE TARJETAS DIVIDIDAS (10 por página) -->
-            <section class="editorial-grid" id="posts-container" aria-label="Listado de artículos">
-                <article class="editorial-card">
-                    <div class="editorial-card__top">
-                        <div class="editorial-card__meta">
-                            <span class="editorial-card__circle">+</span>
-                            <span class="editorial-card__number">N.° 01</span>
-                        </div>
-                        <h2 class="editorial-card__title">Título del artículo aquí</h2>
-                    </div>
-                    <div class="editorial-card__bottom">
-                        <p class="editorial-card__excerpt">Resumen o extracto de la publicación conectado a la API.</p>
-                    </div>
-                </article>
-                -->
-            </section>
+            <section class="editorial-grid" id="posts-container" aria-label="Listado de artículos">--></section>
 
             <div class="editorial-pagination">
                 <button id="prev-page" class="editorial-pagination__btn" type="button">← Prev.</button>
@@ -89,6 +75,9 @@
                 <button id="next-page" class="editorial-pagination__btn" type="button">Next →</button>
             </div>
         </main>
+        <footer class="footer">
+            <p class="footer__text">Hecho por &bull; @Nexuss</p>
+        </footer>
         <script type="module" src="/dist/ts/pages/blog.js"></script>
     </body>
 </html>

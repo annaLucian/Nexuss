@@ -10,6 +10,7 @@ let currentPage = 1;
 let totalItems = 0;
 let activeBlogs: Post[] = [];
 let onPageChangeCallback: OnPageChange | null = null;
+let isPaginationBound = false;
 
 const getTotalPages = () => Math.max(1, Math.ceil(totalItems / ITEMS_PER_PAGE));
 
@@ -50,14 +51,15 @@ const updateIndicator = () => {
 
 export const setPaginationState = (blogs: Post[], page: number = 1, totalCount: number = blogs.length) => {
     activeBlogs = blogs;
-    totalItems = totalCount;
+    totalItems = Math.max(0, totalCount);
 
     const totalPages = getTotalPages();
-    currentPage = Math.min(Math.max(1, page), totalPages);
+    currentPage = totalItems === 0 ? 1 : Math.min(Math.max(1, page), totalPages);
 
     updateButtonState();
     updateIndicator();
 };
+
 export const handlePagination = (onPageChange?: OnPageChange) => {
     if (onPageChange) {
         onPageChangeCallback = onPageChange;
@@ -71,8 +73,15 @@ export const handlePagination = (onPageChange?: OnPageChange) => {
     updateButtonState();
     updateIndicator();
 
+    if (isPaginationBound) return;
+    isPaginationBound = true;
+
     const goToPage = async (nextPage: number) => {
-        currentPage = nextPage;
+        const totalPages = getTotalPages();
+        const clampedPage = Math.min(Math.max(1, nextPage), totalPages);
+        if (clampedPage === currentPage) return;
+
+        currentPage = clampedPage;
         syncPageUrl(currentPage);
         updateButtonState();
         updateIndicator();

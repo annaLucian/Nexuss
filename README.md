@@ -1,10 +1,14 @@
 # 🚀 Nexxus — Blog API con Fetch & Axios
 
-<p align="center">
-  <kbd>
-    <img src="/public/assets/giff-readme.gif" alt="Banner Nexxus" width="520" />
-  </kbd>
-</p>
+<div align="center">
+  <table>
+    <tr>
+      <td bgcolor="#4c1d95" align="center" style="border: 2px solid #8b5cf6; border-radius: 12px; padding: 12px;">
+        <img src="/public/assets/giff-readme.gif" alt="Banner Nexxus" width="520" />
+      </td>
+    </tr>
+  </table>
+</div>
 
 ¡Bienvenidos a **Nexxus!** Una aplicación web de blogs desarrollada en TypeScript para explorar publicaciones, buscar contenido en tiempo real, navegar con paginación sincronizada en la URL y comparar el consumo de APIs mediante **Fetch** y **Axios**. Todo con una interfaz limpia, rápida y respaldada por algunas pruebas unitarias. ✨
 

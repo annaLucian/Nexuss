@@ -3,7 +3,7 @@
 <div align="center">
   <table>
     <tr>
-      <td bgcolor="#4c1d95" align="center" style="border: 2px solid #8b5cf6; border-radius: 12px; padding: 12px;">
+      <td bgcolor="#4c1d95" align="center" style="background:#8b5cf6;border: 2px solid #8b5cf6; border-radius: 12px; padding: 12px;">
         <img src="/public/assets/giff-readme.gif" alt="Banner Nexxus" width="520" />
       </td>
     </tr>

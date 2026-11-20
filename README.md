@@ -1,9 +1,9 @@
 # 🚀 Nexxus — Blog API con Fetch & Axios
 
 <div align="center">
-  <table>
+  <table style="width: 100%; background:#9d81d3">
     <tr>
-      <td bgcolor="#4c1d95" align="center" style="background:#8b5cf6;border: 2px solid #8b5cf6; border-radius: 12px; padding: 12px;">
+      <td bgcolor="#4c1d95" align="center" style="background:#9d81d3; border: 2px solid #8b5cf6; border-radius: 12px; width: 100%;">
         <img src="/public/assets/giff-readme.gif" alt="Banner Nexxus" width="520" />
       </td>
     </tr>

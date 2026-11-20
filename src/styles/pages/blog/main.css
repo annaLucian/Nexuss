@@ -313,7 +313,7 @@
 }
 
 .editorial-pagination__info {
-    font-size: 0.92rem;
+    font-size: 0.88rem;
     font-weight: 600;
     color: var(--theme-ink);
 }
@@ -432,6 +432,9 @@
     .editorial-pagination {
         width: 85%;
         max-width: 1600px;
+    }
+    .editorial-grid {
+        margin-bottom: 12rem;
     }
     .editorial-hero {
         display: flex;

@@ -7,4 +7,7 @@ export const getElements = () => ({
     dynamicParagraph: document.getElementById('dynamic-paragraph'),
     postCard: document.getElementById('posts-container'),
     input: document.getElementById('search-input'),
+    btnNext: document.getElementById('next-page'),
+    btnPrev: document.getElementById('prev-page'),
+    pageIndicator: document.getElementById('page-indicator'),
 });

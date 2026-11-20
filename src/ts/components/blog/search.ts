@@ -2,14 +2,14 @@ import { getElements } from './dom.js';
 import { fetchData } from '../../services/fetchData.js';
 import { debounce } from '../../utils/debounce.js';
 import { renderCards } from './renderCards.js';
-import { urlParams } from './urlParams.js';
+import { syncSearchUrl } from './syncSearchUrl.js';
 import { type ApiClient } from '../../../types/api.types.js';
 
 const excecuteDebounce = debounce(async (inputValue) => {
     const selectUser = localStorage.getItem('clientUsed') as ApiClient;
     const filteredBlogs = await fetchData.getSearchBlogs(selectUser, inputValue);
     renderCards(filteredBlogs);
-    urlParams(inputValue);
+    syncSearchUrl(inputValue);
 }, 600);
 
 export const search = () => {

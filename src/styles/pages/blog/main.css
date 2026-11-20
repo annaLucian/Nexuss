@@ -258,12 +258,12 @@
     margin: 2rem 0 0 0;
 }
 
-/* Bloque Inferior: Rectángulo sólido de color */
 .editorial-card__bottom {
     background-color: var(--theme-primary);
     color: var(--theme-text-on-primary);
     padding: 1.4rem 1.75rem;
     min-height: 95px;
+    height: 13rem;
     display: flex;
     align-items: center;
     transition:

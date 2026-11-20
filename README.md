@@ -1,6 +1,6 @@
 # 🚀 Nexxus — Blog API con Fetch & Axios
 
-<div align="center">
+<div align="center" style="width: 100%; background:#9d81d3">
   <table style="width: 100%; background:#9d81d3">
     <tr>
       <td bgcolor="#4c1d95" align="center" style="background:#9d81d3; border: 2px solid #8b5cf6; border-radius: 12px; width: 100%;">

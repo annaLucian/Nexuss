@@ -17,14 +17,14 @@ export const loadBlogsPage = async (page: number, query: string, apiService: Api
             q: query,
         });
 
-        setPaginationState(posts, page, totalItems);
-        renderCards(posts, page);
+        setPaginationState(page, totalItems);
+        renderCards(posts);
 
         return totalItems;
     } catch (error) {
         console.error('Error al cargar los blogs:', error);
-        setPaginationState([], 1, 0);
-        renderCards([], 1);
+        setPaginationState(1, 0);
+        renderCards([]);
         return 0;
     }
 };

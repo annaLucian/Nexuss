@@ -1,29 +1,23 @@
 import type { Post } from '../../../models/post.model.js';
 import { type OnPageChange } from '../../../types/onPageChange.type.js';
 import { getElements } from './dom.js';
-import { renderCards } from './renderCards.js';
 import { getPageFromUrl, syncPageUrl } from './syncSearchUrl.js';
 
 const ITEMS_PER_PAGE = 10;
 
 let currentPage = 1;
 let totalItems = 0;
-let activeBlogs: Post[] = [];
 let onPageChangeCallback: OnPageChange | null = null;
 let isPaginationBound = false;
 
 const getTotalPages = () => Math.max(1, Math.ceil(totalItems / ITEMS_PER_PAGE));
 
-export const setupPagination = (page: number = 1, data: Post[]) => {
-    const localTotal = data.length;
-    const totalPages = Math.max(1, Math.ceil(localTotal / ITEMS_PER_PAGE));
+export const getPageMetadata = (page: number = 1) => {
+    const totalPages = getTotalPages();
     const activePage = Math.min(Math.max(1, page), totalPages);
-
     const startIndex = (activePage - 1) * ITEMS_PER_PAGE;
-    const endIndex = startIndex + ITEMS_PER_PAGE;
-    const paginatedPosts = data.slice(startIndex, endIndex);
 
-    return { paginatedPosts, startIndex, totalPages, activePage };
+    return { startIndex, totalPages, activePage };
 };
 
 const updateButtonState = () => {
@@ -49,8 +43,8 @@ const updateIndicator = () => {
     pageIndicator.textContent = `Página ${currentPage} de ${totalPages}`;
 };
 
-export const setPaginationState = (blogs: Post[], page: number = 1, totalCount: number = blogs.length) => {
-    activeBlogs = blogs;
+// totalCount ahora es obligatorio (viene de x-total-count de la API)
+export const setPaginationState = (page: number, totalCount: number) => {
     totalItems = Math.max(0, totalCount);
 
     const totalPages = getTotalPages();
@@ -60,10 +54,8 @@ export const setPaginationState = (blogs: Post[], page: number = 1, totalCount: 
     updateIndicator();
 };
 
-export const handlePagination = (onPageChange?: OnPageChange) => {
-    if (onPageChange) {
-        onPageChangeCallback = onPageChange;
-    }
+export const handlePagination = (onPageChange: OnPageChange) => {
+    onPageChangeCallback = onPageChange;
 
     const { btnNext, btnPrev } = getElements();
     const buttonNext = btnNext as HTMLButtonElement | null;
@@ -88,8 +80,6 @@ export const handlePagination = (onPageChange?: OnPageChange) => {
 
         if (onPageChangeCallback) {
             await onPageChangeCallback(currentPage);
-        } else {
-            renderCards(activeBlogs, currentPage);
         }
     };
 

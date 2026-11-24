@@ -1,8 +1,7 @@
 import type { Post } from '../../../models/post.model.js';
 import { getElements } from './dom.js';
-import { setupPagination } from './pagination.js';
 
-export const renderCards = (blogsArray: Post[], page: number = 1) => {
+export const renderCards = (blogsArray: Post[]) => {
     const { postCard } = getElements();
     if (!postCard) return;
     postCard.innerHTML = '';
@@ -14,9 +13,7 @@ export const renderCards = (blogsArray: Post[], page: number = 1) => {
     }
     postCard.classList.remove('container-nogrid');
 
-    const { paginatedPosts: blogs } = setupPagination(page, blogsArray);
-
-    blogs.forEach((blog, index) => {
+    blogsArray.forEach((blog) => {
         const formattedNumber = `N.° ${String(blog.id).padStart(2, '0')}`;
 
         const card = document.createElement('article');

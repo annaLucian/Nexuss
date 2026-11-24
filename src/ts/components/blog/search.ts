@@ -4,6 +4,7 @@ import { debounce } from '../../utils/debounce.js';
 import { renderCards } from './renderCards.js';
 import { syncSearchUrl, syncPageUrl } from './syncSearchUrl.js';
 import { setPaginationState } from './pagination.js';
+import { loadBlogsPage } from '../../pages/blog.js'; // ajusta la ruta si tu archivo se llama distinto
 import { type ApiClient } from '../../../types/api.types.js';
 
 const excecuteDebounce = debounce(async (inputValue: string) => {
@@ -11,17 +12,22 @@ const excecuteDebounce = debounce(async (inputValue: string) => {
     const selectUser: ApiClient = storedClient === 'axios' ? 'axios' : 'fetch';
 
     try {
-        const filteredBlogs = await fetchData.getSearchBlogs(selectUser, inputValue);
-
         syncSearchUrl(inputValue);
         syncPageUrl(1);
-        setPaginationState(filteredBlogs, 1, filteredBlogs.length);
-        renderCards(filteredBlogs, 1);
+
+        if (!inputValue) {
+            await loadBlogsPage(1, '', selectUser);
+            return;
+        }
+
+        const filteredBlogs = await fetchData.getSearchBlogs(selectUser, inputValue);
+        setPaginationState(1, filteredBlogs.length);
+        renderCards(filteredBlogs);
     } catch (error) {
         console.error('Error al buscar blogs:', error);
         syncPageUrl(1);
-        setPaginationState([], 1, 0);
-        renderCards([], 1);
+        setPaginationState(1, 0);
+        renderCards([]);
     }
 }, 600);
 
